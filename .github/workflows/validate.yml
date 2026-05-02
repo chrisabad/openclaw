@@ -23,3 +23,9 @@ jobs:
 
       - name: Typecheck core
         run: pnpm tsgo:core
+
+      - name: Lint core
+        run: pnpm lint:core
+
+      - name: Format check
+        run: pnpm format:check
