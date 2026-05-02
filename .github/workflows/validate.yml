@@ -30,11 +30,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Typecheck core
-        run: pnpm tsgo:core
+      - name: Typecheck
+        run: pnpm tsgo
 
-      - name: Lint core
-        run: pnpm lint:core
+      - name: Lint
+        run: pnpm lint
 
       - name: Format check
         run: pnpm format:check
