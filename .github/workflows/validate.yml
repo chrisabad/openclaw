@@ -1,0 +1,25 @@
+name: Validate (fork patches)
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - '.github/workflows/validate.yml'
+
+jobs:
+  typecheck:
+    name: TypeScript typecheck (patched sources)
+    runs-on: [self-hosted, agentos-mac]
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck core
+        run: pnpm tsgo:core
